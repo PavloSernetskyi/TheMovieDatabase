@@ -1,0 +1,25 @@
+:root {
+    --dark-blue: #007acc;
+    --blue: #6e99f4;
+    --light-blue: #E0EAFF;
+    --light-gray: #f9f9f9;
+    --gray: #f0f0f0;
+    --dark-gray: #2d2d2d40;
+    --darker-gray: #9a9a9a;
+    --red-500: #ef4444;
+    --black: #1a1a1a;
+}
+
+
+body {
+    background-color: var(--dark-blue) !important;
+}
+
+.myBlueClass {
+    color: var(--red-500);/* Set text color to blue */
+}
+
+#myText {
+    color:red; /* Set text color to red */
+}
+
