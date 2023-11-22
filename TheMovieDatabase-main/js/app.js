@@ -35,7 +35,16 @@ function DisplayData(data) {
     movies.forEach((movie) => {
         // Use a template literal to create the paragraph element with movie title
         const paragraph = document.createElement("p");
-        paragraph.textContent = `Movie Title: ${movie.title}`;
+        // paragraph.textContent = `Movie Title: ${movie.title}`;
+        paragraph.innerHTML = `<div class="card my-3" style="width: 18rem;">
+        <img src="https://image.tmdb.org/t/p/original${movie.backdrop_path}" class="card-img-top" alt="Movie Poster">
+        <div class="card-body">
+            <h5 class="card-title">${movie.title}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+`;
 
         // Append the paragraph element to the "myText" div
         myTextDiv.appendChild(paragraph);
