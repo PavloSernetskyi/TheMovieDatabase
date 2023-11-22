@@ -1,1 +1,39 @@
 // alert('Welcome to my website')
+
+function fetchingMovieData() {
+    const API_Key = "274c50ba75fcdc7e7b6b3b17440ddbd9";
+    const API_access_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzRjNTBiYTc1ZmNkYzdlN2I2YjNiMTc0NDBkZGJkOSIsInN1YiI6IjY1NWUzMjM4ZmFiM2ZhMDEzODdhOTA4YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.N_xfw84jfIFWrYnXPqBlqSd1lk7QFQhplMDeE1fXU3U";
+    let endpointURL = 'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
+
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${API_access_token}`
+        }
+      };
+    
+      fetch(endpointURL, options)
+        .then(response => response.json()) // Responce from the API
+        .then(data => DisplayData(data)) // The result data
+        .catch(err => console.error(err));
+    }
+
+    function DisplayData(data) {
+        //fisrt see all data...
+        // console.log(data);
+
+        //2step. easier to read...
+        const movies = data.results;
+        console.log(movies[0].title);
+        
+         // console.log(data.results[0].title); // shortcut. harder to read...
+
+         //display all titles.
+         movies.forEach(movie => {
+            console.log(movie.title);            
+         });
+    }
+
+    
+    fetchingMovieData();
