@@ -8,38 +8,52 @@ function fetchingMovieData() {
     const options = {
         method: 'GET',
         headers: {
-          accept: 'application/json',
-          Authorization: `Bearer ${API_access_token}`
+            accept: 'application/json',
+            Authorization: `Bearer ${API_access_token}`
         }
-      };
-    
-      fetch(endpointURL, options)
+    };
+
+    fetch(endpointURL, options)
         .then(response => response.json()) // Responce from the API
         .then(data => DisplayData(data)) // The result data
         .catch(err => console.error(err));
-    }
+}
 
-    function DisplayData(data) {
-        //fisrt see all data...
-        // console.log(data);
+function DisplayData(data) {
+    //fisrt see all data...
+    // console.log(data);
 
-        //2step. easier to read...
-        const movies = data.results;
-        console.log(movies[0].title);
+    //2step. easier to read...
+           const movies = data.results;
+    //       console.log(movies[0].title);
 
-        
+    //Dsiplay movies in html...
+    // Get a reference to the "myText" div element
+    const myTextDiv = document.getElementById("myText");
 
-         // console.log(data.results[0].title); // shortcut. harder to read...
+    // Iterate over the movies array and update the content of the div
+    movies.forEach((movie) => {
+        // Use a template literal to create the paragraph element with movie title
+        const paragraph = document.createElement("p");
+        paragraph.textContent = `Movie Title: ${movie.title}`;
 
-         //display all titles. using for each. is preffered way! it is descriptive.. go to readMe. for more info...
-         movies.forEach(movie => {
-            console.log(movie.title);            
-         });
+        // Append the paragraph element to the "myText" div
+        myTextDiv.appendChild(paragraph);
 
-         //alrernatitive map.
-        //  console.log(movies.map(movie => movie.title));
+    });
 
-    }
+    // console.log(data.results[0].title); // shortcut. harder to read...
 
-    
-    fetchingMovieData();
+    //display all titles. using for each. is preffered way! it is descriptive.. go to readMe. for more info...
+    //  movies.forEach(movie => {
+    //     console.log(movie.title);            
+    //  });
+
+    //alrernatitive map.
+    //  console.log(movies.map(movie => movie.title));
+
+}
+
+
+fetchingMovieData();
+
