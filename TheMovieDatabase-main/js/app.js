@@ -26,13 +26,19 @@ function fetchingMovieData() {
         //2step. easier to read...
         const movies = data.results;
         console.log(movies[0].title);
+
         
+
          // console.log(data.results[0].title); // shortcut. harder to read...
 
-         //display all titles.
+         //display all titles. using for each. is preffered way! it is descriptive.. go to readMe. for more info...
          movies.forEach(movie => {
             console.log(movie.title);            
          });
+
+         //alrernatitive map.
+        //  console.log(movies.map(movie => movie.title));
+
     }
 
     
