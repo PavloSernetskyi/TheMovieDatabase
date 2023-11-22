@@ -35,6 +35,9 @@ function DisplayData(data) {
     movies.forEach((movie) => {
         // Use a template literal to create the paragraph element with movie title
         const paragraph = document.createElement("p");
+// formating cards..//! not formating...need more cols..
+// paragraph.classList.add("col-md-3", "mb-4", "px-3");
+
         // paragraph.textContent = `Movie Title: ${movie.title}`;
         paragraph.innerHTML = `<div class="card my-3" style="width: 18rem;">
         <img src="https://image.tmdb.org/t/p/original${movie.backdrop_path}" class="card-img-top" alt="Movie Poster">
